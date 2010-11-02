@@ -2,7 +2,7 @@
 
 #forum
   - if @posts.empty?
-    %p No talk here yet.
+    %p= t('forums.empty_topic')
   - else
     - if @posts.previous_page
       = paginate_and_summarise @posts, 'posts'
@@ -13,15 +13,15 @@
     = paginate_and_summarise @posts, 'posts'
 
 - content_for :breadcrumbs do
-  = link_to 'Forum', topics_url
+  = link_to t('forums.forum'), topics_url
   \&gt;
   = @title
 
 - content_for :pagetitle do
-  Posts
+  = t('forums.posts').capitalize
 
 - content_for :breadhead do
-  = link_to "Forum", topics_url, :class => 'breadhead'
+  = link_to t('forums.forum'), topics_url, :class => 'breadhead'
 
 - content_for :feed do
   = feed_link(posts_path(:format => :rss))

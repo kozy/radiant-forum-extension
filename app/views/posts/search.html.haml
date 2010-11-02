@@ -28,12 +28,12 @@
   = link_to 'Forum', topics_url
   - if @searching
     \&gt;
-    = link_to "Posts", posts_url
+    = link_to t("forums.posts").capitalize, posts_url
     \&gt;
     = @title
   - else
     \&gt;
-    Search
+     = t("forums.search").capitalize
 
 - content_for :breadhead do
   - if @searching
@@ -43,9 +43,9 @@
 
 - content_for :pagetitle do
   - if @searching
-    = @title || 'Search results'
+    = @title || t('forums.search.results')
   - else
-    Search
+    = t("forums.search").capitalize
 
 - content_for :feed do
   = feed_link(search_posts_url(params.merge(:format => :rss))) if @searching

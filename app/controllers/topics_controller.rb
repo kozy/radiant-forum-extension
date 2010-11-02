@@ -43,7 +43,7 @@ class TopicsController < ReaderActionController
       format.html { redirect_to forum_topic_path(@forum, @topic) }
     end
   rescue ActiveRecord::RecordInvalid => invalid
-    flash[:error] = "Sorry: #{invalid}. Please check the form"
+    flash[:error] = t('forums.error.invalid_model', invalid)
     respond_to do |format|
       format.html { render :action => 'new' }
     end

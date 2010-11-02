@@ -4,8 +4,8 @@ xml.channel do
     :rel => 'self', :type => 'application/rss+xml'
   }
 
-  xml.title "#{@site_title} : Discussions most recently updated"
-  xml.description "The latest new and updated topics"
+  xml.title t('forums.rss.topics.title', :site_title => @site_title)
+  xml.description t('forums.rss.topics.description')
   xml.link topics_url
   xml.language "en-us"
   xml.ttl "60"

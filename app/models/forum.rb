@@ -32,8 +32,8 @@ class Forum < ActiveRecord::Base
   
   def self.find_or_create_comments_forum
     @comments_forum = self.find_by_for_comments(true) || self.create(
-      :name => 'Page Comments',
-      :description => 'This forum automatically gathers up all comments on pages. You can reply here or on the page.',
+      :name => t('forums.page_comments_forum_title'),
+      :description => t('forums.page_comments'),
       :created_by => User.find_by_admin(true),
       :position => 999,
       :created_at => Time.now,

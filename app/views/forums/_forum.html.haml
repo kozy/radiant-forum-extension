@@ -4,19 +4,10 @@
       = forum.name
   - if topic = forum.recent_topics.first
     %span.context
-      = forum.topics.count
-      = pluralize forum.topics.count, "discussions"
-      containing
-      = forum.posts.count
-      messages,
-      %br
-      most recently in
-      = link_to topic.name, forum_topic_url(forum, topic)
-      = time_ago_in_words(topic.replied_at || topic.created_at)
-      ago.
+      = t('forums.overview', :topics_count => forum.topics.count, :posts_count => forum.posts.count, :forum_topic_url => link_to(topic.name, forum_topic_url(forum, topic)), :time_ago_words => time_ago_in_words(topic.replied_at || topic.created_at))
   - else 
     %span.context
-      No posts yet.
+      = t('forums.no_posts')
   %div.preview
     = truncate_and_textilize(forum.description, 40)
     

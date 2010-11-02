@@ -1,17 +1,16 @@
 / this form is usually brought in by a remote call to sit on the page in the place of the post itself.
 
-- message_type = @topic.page ? 'comment' : 'message'
+- message_type = @topic.page ? t('forums.message_type.comment')  : t('forums.message_type.message')
 
 - form_for :post, :url  => topic_post_path(@topic, @post), :html => {:method => 'put', :multipart => true, :id => "post_form_#{@post.id}", :class => 'friendly'} do |f|
   = render :partial => 'posts/form', :object => f
   %p.buttons
-    = f.submit "Save changes"
-    or
-    = link_to "cancel", topic_post_path(@topic, @post), :class => 'cancel'
+    = f.submit t('forums.save_changes') + " " + t('forums.or')
+    
+    = link_to t('cancel'), topic_post_path(@topic, @post), :class => 'cancel'
 
 - content_for :pagetitle do
-  Edit
-  = message_type
+  = t('forums.edit').capitalize + message_type
 
 - content_for :breadhead do
   = link_to @post.topic.name, forum_topic_url(@post.topic.forum, @post.topic), {:class => 'breadhead'}

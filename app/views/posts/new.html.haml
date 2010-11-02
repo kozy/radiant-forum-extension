@@ -1,4 +1,4 @@
-- message_type = @page ? 'comment' : 'reply'
+- message_type = @page ? t('forums.message_type.comment')  : t('forums.message_type.reply') 
 
 #forum
   = render :partial => 'posts/reply'
@@ -10,5 +10,4 @@
     = link_to @topic.name, forum_topic_url(@topic.forum, @topic), :class => 'breadhead'
 
 - content_for :pagetitle do
-  Add a
-  = message_type
+  = t('forums.add_a_type', :message_type => message_type)

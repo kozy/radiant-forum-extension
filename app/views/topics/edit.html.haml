@@ -4,23 +4,23 @@
   %h1
     = link_to "#{@forum.name} &raquo;", forum_url(@forum), {:class => 'breadhead'}
     %br
-    Edit discussion 
+    = t('forums.edit_discussion') 
 
   #new_topic
     = form_for :topic, :url  => forum_topic_path(@forum, @topic), :html => {:method => :put, :class => 'friendly'} do |f|
       = render :partial => "form", :object => f
-	    = submit_tag 'Save Changes' 
-	    or 
-	    = link_to('cancel', forum_topic_path(@forum, @topic))
+	    = submit_tag t('forums.save_changes')
+	    = t('forums.or')
+	    = link_to(t('cancel').downcase, forum_topic_path(@forum, @topic))
 
 = render :partial => 'readers/controls'
 
 - content_for :breadcrumbs do
-  = link_to 'Forum', topics_url
+  = link_to t('forums.forum'), topics_url
   \&gt;
   = link_to @forum.name, forum_url(@forum) 
   \&gt;
-  Edit Discussion
+  = t('forums.edit_discussion')
 
 - content_for :pagetitle do
-  Edit Discussion
+  = t('forums.edit_discussion')

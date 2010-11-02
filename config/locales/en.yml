@@ -1,0 +1,178 @@
+--- 
+en: 
+  cancel: Cancel
+  forums:
+    post_removed: "Post removed"
+    sticky: Sticky
+    edit_time_remaining: You have {{still_editable_time}} to {{edit_post_link}}
+    only_admin_can_remove: only admin can remove forums
+    edit_preferences_link: Edit your preferences
+    site_forum_layout: Layout for forum pages (defaults to reader layout)
+    subscriptions: Subscriptions
+    post_button: Post {{message_type}}
+    remove_forum: Remove Forum
+    attach_file_link: attach a file
+    confirm_remove_discussion_category: Are you sure you want to <strong class="warning">permanently remove</strong> the {{forum_name}} discussion category?
+    reader_credentials: |-
+      You are logged in as {{current_reader_name_link}}.
+      If that's not you, please {{logout_link}}.
+    topic: 
+      empty: Topic empty!
+    by_name: (by {{name}})
+    discussion_category_has_topics_and_or_posts: It contains {{topics_count}} discussions and {{posts_count}} messages, <strong class="warning">all of which will also be deleted</strong>
+    page_comments: This forum automatically gathers up all comments on pages. You can reply here or on the page.
+    categories: Categories
+    poster_credits: posted by {{reader_name_link}} {{friendly_date}} in {{forum}}.
+    show_comments: Show comments
+    save_changes: Save changes
+    most_recent_poster: most recently from
+    watch_topic: Watch topic
+    description: 
+      empty: "{{edit_your_preferences_link}} to put some text about yourself here."
+      not_provided: No description provided.
+    attached: "attached:"
+    edit_discussion: Edit discussion
+    edit: edit
+    started_by_reader_name: started by
+    preview_message: Please check your message below. If it's ok, press 'post message' to add it to the site.
+    replied_to_by_reader_name: replied to by
+    edit_your_post_link: edit your post
+    discussion_title: Discussion title
+    comments_forum: comments forum
+    start_discussion_button: Start Discussion
+    help: Help!
+    comments_closed: Comments closed
+    purpose: 
+      reply: To reply
+      add_comment: To add a comment
+    you: You
+    notice: 
+      topic_locked: Topic is locked.
+      topic_removed: Topic removed
+      post_removed: Post removed
+    file_in_category: "File in category:"
+    latest_posts: 
+      title: Latest posts
+      description: Latest posts in any topic or forum
+    topics: 
+      preamble: |-
+        This is a list of all the discussions going on here, with the most recently updated first. 
+        You can also see a more organised list of {{discussions_by_category_link}}.
+      topics: topics
+      context: from {{reader_name_link}} {{posts_count}}. comments, most recently from {{name_replier_link}} {{replied_at_date}}
+    add_a_type: Add a {{message_type}}
+    site_forum_layout_comment: currently you have to be logged into a site to see its layouts here. will fix.
+    delete: delete
+    discussions_by_category_link: discussions by category
+    comment: comment(s)
+    posted: posted
+    log_out_link: log out
+    post_reply_link: Post a reply
+    moderate_forum: Moderate Forum
+    unwatch_forum_instructions: You can remove any of these topics from your feed by clicking it in the list above (or on the topic page). It will remain in this list so you can easily reactivate the subscription.
+    confirm: confirm
+    forum_search_title: Forum Search
+    empty_forum_text: No categories defined here yet.
+    start_disscussion_link_text: start a new discussion
+    and_updated: and updated
+    monitored_title: Topics you're watching
+    error: 
+      invalid_model: "Sorry: #{invalid}. Please check the form"
+      topic_locked: This topic is locked.
+      not_commentable: This page is not commentable.
+      cannot_be_empty: "Sorry: message can't be empty"
+    discussion_categories: Discussion Categories
+    friendly_date: 
+      today: today at %l:%M%p
+      unkown: unknown date
+      yesterday: yesterday at %l:%M%p
+      other_year: on %B %e, %Y
+      this_year: on %B %e
+    browse_discussions: "&rarr; browse discussions"
+    empty_topic: No talk here yet.
+    your_subscriptions: Your subscriptions
+    breadcrumbs: |-
+      \&gt;
+        Categories
+    must_be_admin: You must be an administrator to add or change discussion categories.
+    watched_forum_preamble: |-
+      New posts in any of these topics will show up in your personal feed, which you can see as a {{web_page_link}} or an {{rss_feed_link}}.
+          To add a topic to this list, click on the 'watch this' link at the top of the topic page.
+    or: or
+    search_results: Search Results
+    overview: "{{topics_count}} discussion(s) containing {{posts_count}} messages, <br /> most recently in {{forum_topic_url}}, {{time_ago_words}} ago."
+    replied_time_ago: replied {{time}} ago
+    revise: revise
+    confirm_delete_message: Are you sure you want to delete this message?
+    rss: 
+      topic_reply_and_from: Reply to '{{topic_name}}' (from {{reader_name}})
+      show_topic: 
+        description: "{{posts_length}} posts, most recently from {{last_post_reader_name}} on {{date}}"
+      topic_reply: Reply from {{reader_name}}
+      topics: 
+        title: "{{site_title}} : Discussions most recently updated"
+        description: The latest new and updated topics
+      new_topic_first_post: "New topic: '{{topic_name}}' (from {{reader_name}})"
+    posts: posts
+    locked: Locked
+    first_post: "started a new discussion in "
+    remove_discussion_category: Remove Discussion Category
+    no_comments_yet: None yet
+    moderate_forum_description: "Really really soon you will see a list of topics and postings here and an easy way to remove those that offend   "
+    discussions: discussions
+    opening_message: Opening message
+    discussion_category_has_no_topics_or_posts: It contains no discussions.
+    lang: en-US
+    watch_list: Watch list
+    no_posts: No posts yet.
+    paginate_and_summarise: 
+      one: one
+    new_discussion: New Discussion
+    sorry_locked_topic: "Sorry: this topic is locked."
+    action: Action
+    delete_forum: Delete Forum
+    page_comments_forum_title: Page Comments
+    watching_topic: Watching topic
+    start_discussion_link: start a new discussion here
+    from: from
+    remove: remove
+    admin: 
+      topic_is_closed: This topic is closed.
+    forum_preamble: |-
+      These are the broad filing areas we use to organize the forum. 
+            You can also see a list of {{all_recent_discussions_link}} in any category.
+    comments_on_page_title: Comments on {{page_title}}
+    message_type: 
+      comment: comment
+      reply: reply
+      message: message
+    reader_notification_email: |-
+      Hello {{reader_name}}.
+      
+      A new comment has been added to the conversation '{{topic_name}}' by {{poster}}:
+      
+      _______________________________________________________________________
+      
+      {{post_body}}
+      
+      _______________________________________________________________________
+      
+      
+      To see the comment in context and to reply, please visit the topic page at {{page_url}}
+      
+      On that page you will also find the link to switch off this email notification service.
+    search: 
+      results: Search results
+      form_labels: 
+        by_person: From this person
+        discussion_categorie: In this discussion category
+        search_for: Look for this text
+      anyone: anyone
+      anywhere: anywhere
+      search: search
+    new_forum: New Forum
+    replied_post: replied
+    commented_upon_by_reader_name: commented upon by
+    latest_discussion: Latest discussion
+    comments: Comments
+    delete_forum_confirm: Really delete forum?

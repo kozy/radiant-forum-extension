@@ -2,13 +2,12 @@
 / and instead bring it in with a remote call. most often this is for page comments, where
 / it has the advantage that the page can still be cached. that's why a login form might be returned.
 
-- message_type = @page ? 'comment' : 'message'
+- message_type = @page ? t('forums.message_type.comment')  : t('forums.message_type.message') 
 - formurl = @page ? page_posts_url(@page) : posts_url(@forum, @topic)
 
 #forum
   - if response.layout
-    %p
-      Please check your message below. If it's ok, press 'post message' to add it to the site.
+    %p= t('forums.preview_message')
   %div.post
     %div{:class => 'reply'}
       %div.post_header
@@ -17,16 +16,14 @@
             = gravatar_for(@post.reader, {:size => 40}, {:alt => @post.reader.name, :class => 'gravatar', :width => '40', :height => '40'})
             = @post.reader.name
         %p.context
-          replied
-          = time_ago_in_words(@post.created_at)
-          ago
+          = t('forums.replied_time_ago', :time => time_ago_in_words(@post.created_at))
       %div.post_body
         = clean_textilize(@post.body)
       %div.post_confirmation
         - form_for :post, :url  => formurl, :html => {:id => 'reply_form', :class => 'friendly'} do |f|
           = f.hidden_field :body
-          = submit_tag 'confirm', :class => 'confirm', :id => 'confirm'
-          or 
-          = submit_tag 'revise', :class => 'revise', :id => 'revise' 
-          or
-          = link_to 'cancel', @page ? @page.url : forum_topic_url(@topic.forum, @topic), :class => 'cancelform'
+          = submit_tag t('forums.confirm'), :class => 'confirm', :id => 'confirm'
+          = t('forums.or') 
+          = submit_tag t('forums.revise'), :class => 'revise', :id => 'revise' 
+          = t('forums.or') 
+          = link_to t('cancel'), @page ? @page.url : forum_topic_url(@topic.forum, @topic), :class => 'cancelform'

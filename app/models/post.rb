@@ -115,7 +115,7 @@ protected
     self.topic.refresh_reply_data(self)
   end
 
-  def revert_topic_reply_data
+  def revert_topic_reply_data    
     self.topic.refresh_reply_data
   end
   

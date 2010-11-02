@@ -1,15 +1,11 @@
 #forum
   %h2
-    Comments on 
-    = page.title
+    = t('forums.comments_on_page_title', :page_title => page.title)
 
 - if posts.nil?
-  %p None yet
-  %pre 
-    = posts.inspect
+  %p= t('forums.no_comments_yet')
+  %pre= posts.inspect
 
 - else
-  %pre 
-    = posts.inspect
-  %p
-    = current_reader.inspect
+  %pre= posts.inspect
+  %p= current_reader.inspect

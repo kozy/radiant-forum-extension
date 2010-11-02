@@ -61,17 +61,17 @@ module ForumHelper
         if datetime
           date = datetime.to_date
           if (date == Date.today)
-            format = "today at %l:%M%p"
+            format = t('forums.friendly_date.today')
           elsif (date == Date.yesterday)
-            format = "yesterday at %l:%M%p"
+            format = t('forums.friendly_date.yesterday')
           elsif (date.year == Date.today.year)
-            format = "on %B %e"
+            format = t('forums.friendly_date.this_year')
           else
-            format = "on %B %e, %Y"
+            format = t('forums.friendly_date.other_year')
           end
           datetime.strftime(format)
         else 
-          "unknown date"
+          t('forums.friendly_date.unkown')
         end
       end
       
@@ -90,7 +90,7 @@ module ForumHelper
         total = list.total_entries
         if total == 1
           if plural.blank?
-            "one"
+            t('forums.paginate_and_summarise.one')
           else
             %{one #{plural.singularize}}
           end

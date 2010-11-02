@@ -2,34 +2,30 @@
 
 #forum
   #forum_preamble
-    %p
-      This is a list of all the discussions going on here, with the most recently updated first. 
-      You can also see a more organised list of 
-      = link_to("discussions by category", forums_url) + '.'
+    %p= t('forums.topics.preamble', :discussions_by_category_link => link_to(t('forums.discussions_by_category_link'), forums_url))
     
-    %p
-      = link_to "Start a new discussion", new_topic_url, :class => 'newmessage'
+    %p= link_to t('forums.start_disscussion_link_text'), new_topic_url, :class => 'newmessage'
 
   - if @topics.empty?
-    %p No talk here yet.
+    %p= t('forums.empty_topic')
 
   - else
     - if @topics.previous_page
-      = paginate_and_summarise @topics, 'topics'
+      = paginate_and_summarise @topics, t('forums.topics.topics')
       
     %ul.main
       = render :partial => 'topics/topic', :collection => @topics, :locals => {:with_context => true}
 
-    = paginate_and_summarise @topics, 'topics'
+    = paginate_and_summarise @topics, t('forums.topics.topics')
 
 - content_for :breadhead do
   = home_page_link(:class => 'breadhead')
 
 - content_for :breadcrumbs do
-  Forum
+  = t('forums.forum')
 
 - content_for :pagetitle do
-  Latest discussion
+  = t('forums.latest_discussion')
 
 - content_for :feed do
   = feed_link(topics_path(:format => :rss))

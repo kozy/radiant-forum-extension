@@ -13,7 +13,8 @@
         - thead.latest_header do
           %th.forum_latest Latest activity
         - thead.modify_header do
-          %th.action Action
+          %th.action 
+            = t('forums.action')
   %tbody
     - @forums.each do |forum|
       %tr.node.level-1
@@ -25,13 +26,13 @@
                 = link_to forum.name, edit_admin_forum_url(:id => forum)
               -if forum.for_comments
                 %p.context
-                  (comments forum)
+                  = t('forums.comments_forum')
               = textilize(forum.description)
               %p
                 - if forum.respond_to?(:site)
-                  = link_to "&rarr; browse discussions", 'http://' + forum.site.base_domain + forum_path(forum)
+                  = link_to t('forums.browse_discussions'), 'http://' + forum.site.base_domain + forum_path(forum)
                 - else
-                  = link_to "&rarr; browse discussions", forum_path(forum)
+                  = link_to t('forums.browse_discussions'), forum_path(forum)
 
           - tbody.latest_cell do
             %td.forum_latest
@@ -49,8 +50,9 @@
                         - if topic.posts.count > 1
                           = link_to topic.reader.name + '.', reader_url(topic.reader)
                           = topic.posts.count
-                          = pluralize(topic.posts.count, 'comment') + ','
-                          most recently from
+                          / = pluralize(topic.posts.count, 'comment') + ','      
+                          = t('forums.comment')
+                          t('forums.most_recent_poster')
                           = link_to topic.replied_by.name, reader_url(topic.replied_by)
                           = friendly_date(topic.replied_at)
                         - else 
@@ -62,15 +64,15 @@
           - tbody.modify_cell do
             %td.remove
               -if forum.for_comments
-                = image('noremove', :alt => 'Remove Forum')
+                = image('noremove', :alt => t('forums.remove_forum'))
               -else
                 - if admin?
-                  = link_to image('remove', :alt => 'Remove Forum'), remove_admin_forum_url(:id => forum) 
+                  = link_to image('remove', :alt => t('forums.remove_forum')), remove_admin_forum_url(:id => forum) 
                 - else
-                  = image('noremove', :alt => 'only admin can remove forums')
+                  = image('noremove', :alt => t('forums.only_admin_can_remove'))
 
 - render_region :bottom do |bottom|
   - bottom.new_button do
     - if admin?
       %p
-        = link_to image('new-forum', :alt => 'New Forum'), new_admin_forum_url
+        = link_to image('new-forum', :alt => t('forums.new_forum')), new_admin_forum_url

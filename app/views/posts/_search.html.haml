@@ -1,28 +1,23 @@
 %form.friendly{:action => search_posts_url}
-  %h2 
-    Forum Search
+  %h2= t('forums.forum_search_title')
 
   %p
-    %label{:for => "q"}
-      Look for this text
+    %label{:for => "q"}= t('forums.search.form_labels.search_for')
     = text_field_tag "q", params[:q], :class => 'standard'
 
   %p
-    %label{:for => "forum_id"}
-      In this discussion category
+    %label{:for => "forum_id"}= t('forums.search.form_labels.discussion_categorie')
     %select{:name => "forum_id"}
       %option{:value => ""}
-        anywhere
+        = t('forums.search.anywhere')
       = options_from_collection_for_select(Forum.find(:all), "id", "name", params[:forum_id].to_i)
 
   -if Radiant::Config['forum.search_by_reader']
     %p
-      %label{:for => "reader_id"}
-        From this person
+      %label{:for => "reader_id"}= t('forums.search.form_labels.by_person')
       %select{:name => "reader_id"}
-        %option{:value => ""}
-          anyone
+        %option{:value => ""}= t('forums.search.anyone')
         = options_from_collection_for_select(Reader.find(:all), "id", "name", params[:reader_id].to_i)
 
   %p
-    = submit_tag "search"
+    = submit_tag t('forums.search.search')

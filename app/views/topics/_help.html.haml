@@ -1,7 +1,6 @@
 - if helpforum = Forum.find_by_name('Help')
   #marginalia
-    %h3
-      Help!
+    %h3= t('forums.help')
     %ul.helplist
       - helpforum.topics.find(:all, :limit => 10).each do |topic|
         %li

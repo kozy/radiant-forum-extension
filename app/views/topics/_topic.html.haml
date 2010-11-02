@@ -13,15 +13,17 @@
         = gravatar_for(topic.reader, {:size => 40}, {:alt => topic.reader.name, :class => 'gravatar'})
         = topic.name
     %span.context
-      from
       - if topic.posts.count > 1
-        = link_to topic.reader.name + '.', reader_url(topic.reader)
-        = topic.posts.count
-        = pluralize(topic.posts.count, 'comment') + ','
-        most recently from
-        = link_to topic.replied_by.name, reader_url(topic.replied_by)
-        = friendly_date(topic.replied_at)
-      - else 
+        = t('forums.topics.context', :reader_name_link => link_to(topic.reader.name, reader_url(topic.reader)), :posts_count => topic.posts.count, :name_replier_link => link_to(topic.replied_by.name, reader_url(topic.replied_by)), :replied_at_date => friendly_date(topic.replied_at))
+      
+        / = link_to topic.reader.name + '.', reader_url(topic.reader)
+        / = topic.posts.count
+        / = pluralize(topic.posts.count, 'comment') + ','
+        / most recently from
+        / = link_to topic.replied_by.name, reader_url(topic.replied_by)
+        / = friendly_date(topic.replied_at)
+      - else
+        = t('forums.from')
         = link_to topic.reader.name, reader_url(topic.reader)
         = friendly_date(topic.created_at)
         
@@ -31,5 +33,5 @@
       - elsif topic.first_post
         = truncate_and_textilize(topic.first_post.body, 50)
       - else
-        %p Topic empty!
+        %p= t('forums.topic.empty')
     

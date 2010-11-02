@@ -1,5 +1,4 @@
-%h3
-  Latest discussion
+%h3= t('forums.latest_discussion')
 %ul.clean
   - Post.visible.latest(6).each do |post|
     %li
@@ -8,10 +7,10 @@
       %br
         %span.credit
           - if post.topic.page
-            commented upon by
+            = t('forums.commented_upon_by_reader_name')
           - elsif post.first?
-            started by
+            = t('forums.started_by_reader_name')
           - else
-            replied to by
+            = t('forums.replied_to_by_reader_name')
           = post.reader.name
           = friendly_date(post.created_at)

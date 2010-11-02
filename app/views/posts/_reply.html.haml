@@ -1,9 +1,8 @@
-- message_type = @page ? 'comment' : 'reply'
-- purpose = @page ? 'To add a comment' : 'To reply'
+- message_type = @page ? t('forums.message_type.comment') : t('forums.message_type.reply')
+- purpose = @page ? t('forums.purpose.add_comment') : t('forums.purpose.reply')
 
 - if @topic.locked?
-  %p.administrative
-    This topic is closed.
+  %p.administrative= t('forums.admin.topic_is_closed')
 
 - else
   - if current_reader
@@ -17,18 +16,14 @@
             %h2
               %a{:href => reader_url(current_reader), :class => 'main'}
                 = gravatar_for(current_reader, {:size => 40}, {:alt => current_reader.name, :class => 'gravatar', :width => '40', :height => '40'})
-              Add a 
-              = message_type
+              = t('forums.add_a_type', :message_type => message_type)
         
             %p.context
-              You are currently logged in as 
-              = link_to(current_reader.name, reader_url(current_reader)) + '.'
-              If that's not you, please 
-              = link_to("log out", reader_logout_url) + '.'
+              = t('forums.reader_credentials', :current_reader_name_link => link_to(current_reader.name, reader_url(current_reader)), :logout_link => link_to(t('forums.log_out_link'), reader_logout_url))
 
           = render :partial => 'posts/form', :object => f
           %p.buttons
-            = f.submit "Post #{message_type}"
+            = f.submit t('forums.post_button', :message_type => message_type)
     - else
       = render :partial => 'reader_activations/activation_required', :locals => {:purpose => purpose}
       

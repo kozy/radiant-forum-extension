@@ -6,14 +6,14 @@
 
   - unless @forum.for_comments?
     %p
-      = link_to "start a new discussion here", new_forum_topic_url(@forum), :class => 'newmessage'
+      = link_to t('forums.start_discussion_link'), new_forum_topic_url(@forum), :class => 'newmessage'
 
   - if @topics.empty?
-    %p No talk here yet.
+    %p= t('forums.empty_topic')
 
   - else
     - unless @topics.current_page == 1
-      = paginate_and_summarise @topics, 'topics'
+      = paginate_and_summarise @topics, t('forums.topics')
 
     %ul.main
       = render :partial => 'topics/topic', :collection => @topics, :locals => { :with_context => false }
@@ -27,10 +27,10 @@
   = feed_link(formatted_forum_path(@forum, :rss))
 
 - content_for :breadhead do
-  = link_to 'Categories', forums_url, :class => 'breadhead'
+  = link_to t('forums.categories'), forums_url, :class => 'breadhead'
 
 - content_for :breadcrumbs do
-  = link_to 'Discussion Categories', forums_url
+  = link_to t('forums.discussion_categories'), forums_url
   \&gt;
   = link_to @forum.name, forum_url(@forum) 
 

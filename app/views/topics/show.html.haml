@@ -2,15 +2,15 @@
 
 #forum
   - if @posts.previous_page
-    = paginate_and_summarise @posts, 'comments'
+    = paginate_and_summarise @posts, t('forums.comments').downcase
 
   = render :partial => 'posts/post', :collection => @posts, :locals => { :with_context => false, :first_post => @topic.posts.first }
 
   - if @posts.next_page
-    = paginate_and_summarise @posts, 'comments'
+    = paginate_and_summarise @posts, t('forums.comments').downcase
   - else
     - if @topic.page
-      = link_to "Post a reply", new_topic_post_url(@topic), :class => 'inviting remote_content'
+      = link_to t('forums.post_reply_link'), new_topic_post_url(@topic), :class => 'inviting remote_content'
     - else
       = render :partial => 'posts/reply'
 
@@ -18,12 +18,8 @@
   = @topic.name
 
 - content_for :credits do
-  %p.context
-    posted by
-    = link_to @topic.reader.name, reader_url(@topic.reader)
-    = friendly_date(@topic.created_at)
-    in
-    = link_to @topic.forum.name + '.', forum_url(@topic.forum), {:class => 'breadhead'}
+  %p.context{:class => 'breadhead'}
+    = t('forums.poster_credits', :reader_name_link => link_to(@topic.reader.name, reader_url(@topic.reader)), :friendly_date => friendly_date(@topic.created_at), :forum => link_to(@topic.forum.name, forum_url(@topic.forum)))
 
 - content_for :mugshot do
   = gravatar_for(@topic.reader, {:size => 42}, {:alt => @topic.reader.name, :class => 'gravatar'})
@@ -38,7 +34,7 @@
   = link_to @forum.name, forum_url(@forum), :class => 'breadhead'
 
 - content_for :breadcrumbs do
-  = link_to 'Forum', topics_url
+  = link_to t('forums.forum'), topics_url
   \&gt;
   = link_to @forum.name, forum_url(@forum) 
   \&gt;

@@ -4,7 +4,7 @@ class PostsController < ReaderActionController
   before_filter :require_activated_reader, :except => [:index, :show, :search]
   before_filter :find_topic_or_page, :except => [:index, :search]
   before_filter :require_unlocked_topic_and_page, :only => [:new, :create]
-  before_filter :find_post, :only => [:show, :edit, :update]
+  before_filter :find_post, :only => [:show, :edit, :update, :destroy]
   before_filter :build_post, :only => [:new]
   before_filter :require_authority, :only => [:edit, :update, :destroy]
 
@@ -42,7 +42,7 @@ class PostsController < ReaderActionController
     @readers = @posts.collect(&:reader).uniq
     
     if @searching
-      @title = "Search Results"
+      @title = t('forums.search_results')
       @description = "Posts"
       @description << " matching '#{params[:q]}'" unless params[:q].blank?
       @description << " from #{@reader.name}" if @reader
@@ -62,7 +62,7 @@ class PostsController < ReaderActionController
     options[:joins] += ' inner join monitorships on monitorships.topic_id = topics.id'
     options[:page] = params[:page] || 1
     @posts = Post.paginate(:all, options)
-    @title = "Topics you're watching"
+    @title = t('forums.monitored_title')
     render_page_or_feed
   end
 
@@ -104,7 +104,7 @@ class PostsController < ReaderActionController
     end
     
   rescue ActiveRecord::RecordInvalid
-    flash[:error] = 'Problem!'
+    flash[:error] = t('forums.error')
     respond_to do |format|
       format.html { render :action => 'new' }
       format.js { render :action => 'new', :layout => false }
@@ -114,7 +114,7 @@ class PostsController < ReaderActionController
   def topic_locked
     respond_to do |format|
       format.html do
-        flash[:notice] = 'Topic is locked.'
+        flash[:notice] = t('forums.notice.topic_locked')
         redirect_to_page_or_topic
       end
       format.js { render :partial => 'topics/locked' }
@@ -135,7 +135,7 @@ class PostsController < ReaderActionController
     @post.save_attachments(params[:files])
     Radiant::Cache.clear if @post.topic.page
   rescue ActiveRecord::RecordInvalid
-    flash[:error] = "Sorry: message can't be empty"
+    flash[:error] = t('forums.error.cannot_be_empty')
   ensure
     respond_to do |format|
       format.html { redirect_to_page_or_topic }
@@ -147,14 +147,14 @@ class PostsController < ReaderActionController
   def destroy
     if @post.first?
       @post.topic.destroy
-      flash[:notice] = "Topic removed"
+      flash[:notice] = t('forums.notice.topic_removed')
       respond_to do |format|
         format.html { redirect_to_forum }
         format.js { render :partial => 'post', :layout => false }
       end
     else
       @post.destroy
-      flash[:notice] = "Post removed"
+      flash[:notice] = t('forums.notice.post_removed')
       respond_to do |format|
         format.html { redirect_to_page_or_topic }
         format.js { render :partial => 'post', :layout => false }
@@ -212,7 +212,7 @@ protected
   def page_locked
     respond_to do |format|
       format.html {
-        flash[:error] = 'This page is not commentable.'
+        flash[:error] = t('forums.error.not_commentable')
         redirect_to @page.url
       }
       format.js {
@@ -225,7 +225,7 @@ protected
   def topic_locked
     respond_to do |format|
       format.html {
-        flash[:error] = 'This topic is locked.'
+        flash[:error] = t('forums.error.topic_locked')
         redirect_to_page_or_topic
       }
       format.js {

@@ -3,11 +3,9 @@
 #reader
   - if @reader.description.blank?
     - if @reader == current_reader
-      %p
-        = link_to "Edit your preferences", edit_reader_url(current_reader)
-        to put some text about yourself here.
+      %p= t('forums.description.empty', :edit_your_preferences_link => link_to(t('forums.edit_preferences_link'), edit_reader_url(current_reader)))
     - else
-      %p No description provided.
+      %p= t('forums.description.not_provided')
   - else
     = clean_textilize @reader.description
 

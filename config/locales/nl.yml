@@ -1,0 +1,177 @@
+--- 
+nl: 
+  cancel: Annuleren
+  forums:
+    post_removed: "Post verwijderd"
+    sticky: Sticky
+    edit_time_remaining: U heeft {{still_editable_time}} om {{edit_post_link}}
+    only_admin_can_remove: alleen admin kan forums verwijderen
+    edit_preferences_link: Uw instellingen aanpassen
+    site_forum_layout: Layout voor forum paginas (standaard 'lezers' layout)
+    subscriptions: Abonnementen
+    post_button: Plaats {{message_type}}
+    remove_forum: Verwijder Forum
+    attach_file_link: bestand aanhechten
+    confirm_remove_discussion_category: Weet u zeker dat u de {{forum_name}} discussie categorie <strong class="warning">permanent wilt verwijdereren</strong>?
+    reader_credentials: |-
+      U bent ingelogd als {{current_reader_name_link}}.
+      Als u dit niet bent, gelieve {{logout_link}}.
+    topic: 
+      empty: Leeg topic!
+    by_name: (door {{name}})
+    discussion_category_has_topics_and_or_posts: Het bevat {{topics_count}} discussies en {{posts_count}} berichten, <strong class="warning">welke tevens allemaal verwijdert worden!</strong>
+    page_comments: Dit forum verzamelt al het commentaar op de website. U kunt hier of op de pagina zelf reageren.
+    categories: Categoriën
+    poster_credits: Geplaatst door {{reader_name_link}} {{friendly_date}} in {{forum}}.
+    show_comments: Bekijk commentaar
+    save_changes: Opslaan
+    most_recent_poster: meest recent van
+    watch_topic: Volg topic
+    description: 
+      empty: "{{edit_your_preferences_link}} om wat informatie over uzelf kwijt te kunnen."
+      not_provided: Geen beschrijving gegeven.
+    attached: "aangehecht:"
+    edit_discussion: Discussie aanpassen
+    edit: aanpassen
+    started_by_reader_name: begonnen door
+    preview_message: Graag uw bericht hieronder controleren. Indien ok, klik op 'post bericht' om het aan de site teo te voegen.
+    replied_to_by_reader_name: beantwoord door
+    edit_your_post_link: uw post aanpassen
+    discussion_title: Discussie titel
+    comments_forum: commentaar forum
+    start_discussion_button: Begin discussie
+    help: Help!
+    comments_closed: Commentaar gesloten
+    purpose: 
+      reply: Om te antwoorden
+      add_comment: Om commentaar toe te voegen
+    you: U
+    notice: 
+      topic_locked: Topic staat op slot.
+      topic_removed: Topic verwijderd
+      post_removed: Post verwijderd
+    file_in_category: "Plaats in categorie:"
+    latest_posts: 
+      title: Laatste posts
+      description: Laatste post in alle topics of forums
+    topics: 
+      preamble: |-
+        Dit is een lijst met alle discussies die aan de gang zijn, de meest recent bovenaan. 
+        U kunt ook een geordende lijst van {{discussions_by_category_link}} zien.
+      topics: topics
+      context: van {{reader_name_link}} {{posts_count}} reacties, de laatste van {{name_replier_link}} {{replied_at_date}}
+    add_a_type: Voeg {{message_type}} toe
+    site_forum_layout_comment: currently you have to be logged into a site to see its layouts here. will fix.
+    delete: verwijderen
+    discussions_by_category_link: discussies op categorie
+    comment: reacties(s)
+    posted: geplaatst
+    log_out_link: uitloggen
+    post_reply_link: Plaats een reactie
+    moderate_forum: Forum beheren
+    unwatch_forum_instructions: Je kan een topic verwijderen door er op te kliken in de lijst hierboven (of via topic pagina). Het item blijft verder in deze lijst zodat je makkelijk opnieuw kan activeren.
+    confirm: confirmeren
+    forum_search_title: Zoeken in het forum 
+    empty_forum_text: Nog geen categoriën.
+    start_disscussion_link_text: begin een nieuwe discussie
+    and_updated: en geüpdate
+    monitored_title: Topics die u volgt
+    error: 
+      invalid_model: "Het spijt mij: #{invalid}. Graag het formulier controleren"
+      topic_locked: Dit topic staat op slot.
+      not_commentable: U kunt geen reactyies plaatsen.
+      cannot_be_empty: "Het spijt me: het bericht kan niet leeg zijn"
+    discussion_categories: Discussie categoriën
+    friendly_date: 
+      today: vandaag om %l:%M%p
+      unkown: onbekende datum
+      yesterday: gisteren om %l:%M%p
+      other_year: op %e %B, %Y
+      this_year: op %e %B
+    browse_discussions: "&rarr; blader door discussies"
+    empty_topic: Nog geen discussies.
+    your_subscriptions: Uw gevolgde discussies
+    breadcrumbs: |-
+      \&gt;
+        Categoriën
+    must_be_admin: U moet een administrator zijn om discussie categoriën toe te voegen of te wijzigen.
+    watched_forum_preamble: |-
+      Nieuwe posts in deze topics ziet u in uw persoonlijke RSS feed, u kunt deze zien als {{web_page_link}} of een {{rss_feed_link}}.
+          Om een topic toe te voegen aan de lijst klikt u de'volg topic' link boven aan de pagina.
+    or: of
+    search_results: Zoek resultaten
+    overview: "{{topics_count}} discussies met {{posts_count}} reacties, <br />als laatst in {{forum_topic_url}}, {{time_ago_words}} geleden."
+    replied_time_ago: antwoorde {{time}} geleden
+    revise: aanpassen
+    confirm_delete_message: Weet u zeker dat u dit bericht wilt verwijderen?
+    rss: 
+      topic_reply_and_from: Gereageerd op '{{topic_name}}' (door {{reader_name}})
+      show_topic: 
+        description: "{{posts_length}} posts, als laatste van {{last_post_reader_name}} op {{date}}"
+      topic_reply: Reactie van {{reader_name}}
+      topics: 
+        title: "{{site_title}} : Recent gevoerde discussies"
+        description: De laatste nieuwe en geüpdate discussies
+      new_topic_first_post: "Nieuw topic: '{{topic_name}}' (van {{reader_name}})"
+    posts: posts
+    locked: Op slot
+    first_post: begon een nieuwe discussie in
+    remove_discussion_category: Verwijder discussie categorie
+    no_comments_yet: Nog geen reacties
+    moderate_forum_description: Binnen kort vind u hier een lijst met topics en reacties hier samen met een makkelijke manier om ze te verwijderen als ze niet een de regels voldoen
+    discussions: discussies
+    opening_message: Openings bericht
+    discussion_category_has_no_topics_or_posts: Heeft nog geen discussies.
+    lang: nl-NL
+    watch_list: Lijst met gevolgde discussies
+    no_posts: Nog geen reacties.
+    paginate_and_summarise: 
+      one: een
+    new_discussion: Nieuwe discussie
+    sorry_locked_topic: "Het spijt me: Dit topic is gesloten."
+    action: Actie
+    delete_forum: Forum verwijderen
+    page_comments_forum_title: Reacties op paginas en nieuws
+    watching_topic: Volg topic
+    start_discussion_link: begin een nieuwe discussie hier
+    from: van
+    remove: verwijder
+    admin: 
+      topic_is_closed: Dit topic is gesloten
+    forum_preamble: |-
+      Dit zijn de grove gebieden die we gebruiken om het forum in te delen
+            U kunt ook een lijst van {{all_recent_discussions_link}} in alle categoriën zien.
+    comments_on_page_title: Reacties op {{page_title}}
+    message_type: 
+      comment: reactie
+      reply: reactie
+      message: bericht
+    reader_notification_email: |-
+      Hallo {{reader_name}}.
+      
+      Er is een nieuwe reactie op '{{topic_name}}' door {{poster}}:
+      
+      _______________________________________________________________________
+      
+      {{post_body}}
+      
+      _______________________________________________________________________
+      
+      
+      Om de reactie in context te zien en te antwoorden bezoekt u {{page_url}}.
+      Op die pagina vind u ook een link om deze automatische notificatie uit te zetten.
+    search: 
+      results: Zoek resultaten
+      form_labels: 
+        by_person: Van deze persoon
+        discussion_categorie: In deze discussie categorie
+        search_for: Zoek naar deze tekst
+      anyone: iedereen
+      anywhere: overal
+      search: zoek
+    new_forum: Nieuw Forum
+    replied_post: antwoorde
+    commented_upon_by_reader_name: gereageerd door
+    latest_discussion: Laastte discussie
+    comments: Reacties
+    delete_forum_confirm: Weet u zeker dat u dit forum wilt verwijderen?
